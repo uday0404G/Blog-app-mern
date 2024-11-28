@@ -1,0 +1,6 @@
+export const USERDATA="USERDATA"
+export const BLOGS="BLOGS"
+export const MYBLOGS="MYBLOGS"
+export const SINGLE="SINGLE"
+export const ERROR="ERROR"
+export const LOADING="LOADING"
