@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import Footer from './Footer';
+import Footer from '../component/Footer';
 import { NavLink } from 'react-router';
-import LeftProfile from './LeftProfile';
-import Navbar from './Navbar';
+import LeftProfile from '../component/LeftProfile';
+import Navbar from '../component/Navbar';
 
 
 

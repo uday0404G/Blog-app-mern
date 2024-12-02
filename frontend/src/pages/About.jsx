@@ -1,6 +1,6 @@
 import React from 'react'
-import LeftProfile from './LeftProfile'
-import Navbar from './Navbar'
+import LeftProfile from '../component/LeftProfile'
+import Navbar from '../component/Navbar'
 
 const About = () => {
   return (

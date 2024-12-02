@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaTwitter, FaFacebookF, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
+import { Link } from 'react-router';
 
 const LeftProfile = () => {
   return (
@@ -28,9 +29,9 @@ const LeftProfile = () => {
           <FaInstagram />
         </a>
       </div>
-      <a href="#" className="btn btn-lg btn-block btn-primary mt-auto">
-        Hire Me
-      </a>
+      <Link to="/add"  className="btn btn-lg btn-block btn-primary mt-auto">
+        Add Blogs
+      </Link>
     </div>
   </div></>
   )

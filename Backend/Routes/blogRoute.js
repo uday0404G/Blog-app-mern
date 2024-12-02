@@ -16,30 +16,37 @@ BlogRoute.get("/single/:id",async(req,res)=>{
 })
 BlogRoute.post("/add",auth,async(req,res)=>{
     let {title,img,description,userid} = req.body
-    // console.log(userId)
+  
     let obj = {
         title ,
         img ,
         description,
         userid : userid
     }
-    let data = await BlogModel.create(obj)
-    res.status(200).send({msg : "Blog added Succesfully", blog : data})
-})
-// BlogRoute.get("/:id",auth,async(req,res)=>{
-//     try {
-//         let data = await BlogModel.findById(req.params.id)
-//         res.status(200).json(data)
-//     } catch (error) {
-//         res.status(401).json(error)
-//     }
-// })
-
-BlogRoute.get("/getMine",auth,async(req,res)=>{
-    let Blogs = await BlogModel.find({userid : req.body.userid}).populate('userid','username email')
-   res.send({blogs : Blogs})
+    let addblog = await BlogModel.create(obj)
+    res.status(200).send({msg : "Blog added Succesfully", addblog})
 })
 
+
+BlogRoute.get("/myblogs",auth,async(req,res)=>{
+    let myblogs = await BlogModel.find({userid : req.body.userid}).populate('userid','username email')
+   res.send({myblogs})
+})
+
+BlogRoute.delete("/delete/:id",auth,async(req,res)=>{
+    const { id } = req.params; 
+    const { userid } = req.body;
+    let user = await BlogModel.findById({_id:id})
+    if(user.userid==userid){
+        let deleteblog = await BlogModel.findByIdAndDelete(id)
+        res.status(200).send({msg:"blog deleted successfully"})
+    }else{
+        res.status(401).send({err:"you are not eligible to delete this blog"})
+    }
+    
+   
+   
+})
 
 
 module.exports=BlogRoute

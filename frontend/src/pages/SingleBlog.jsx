@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import LeftProfile from './LeftProfile';
-import Navbar from './Navbar';
+import LeftProfile from '../component/LeftProfile';
+import Navbar from '../component/Navbar';
 import { useParams } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
 import { Singleblog } from '../Redux/BlogReducer/action';
@@ -14,8 +14,9 @@ const SingleBlog = () => {
  useEffect(()=>{
   dispacth(Singleblog(id))
  },[id])
+console.log(data.SingleBlog);
 
- singdata=(data.SingleBlog)
+ let singdata=data.SingleBlog
 
   return (
     <div>
@@ -49,30 +50,24 @@ const SingleBlog = () => {
           <div className="container py-5 px-2 bg-white">
             <div className="row px-4">
               <div className="col-12">
-                <img className="img-fluid mb-4" src="img/detail.jpg" alt="Detail" />
-                <h2 className="mb-3 font-weight-bold">{}</h2>
+                <img className="img-fluid mb-4" src={singdata.img} alt="Detail" />
+                <h2 className="mb-3 font-weight-bold">{singdata.title}</h2>
                 <div className="d-flex">
                   <p className="mr-3 text-muted">
-                    <i className="fa fa-calendar-alt"></i> 01-Jan-2045
+                    <i className="fa fa-calendar-alt"></i> {singdata.createdTime
+                    }
                   </p>
-                  <p className="mr-3 text-muted">
+                  {/* <p className="mr-3 text-muted">
                     <i className="fa fa-folder"></i> Web Design
                   </p>
                   <p className="mr-3 text-muted">
                     <i className="fa fa-comments"></i> 15 Comments
-                  </p>
+                  </p> */}
                 </div>
                 <p>
-                  Clita duo sadipscing amet ea ut kasd amet dolore, sed erat at dolore vero tempor et sit amet, amet
-                  amet elitr et consetetur ea duo. Gubergren tempor rebum clita at sit diam. Ea sadipscing voluptua et
-                  sit diam diam sed, gubergren magna ipsum lorem clita dolores nonumy dolor.
+                  {singdata.description}
                 </p>
-                <h3 className="mb-3 font-weight-bold">Est dolor lorem et ea</h3>
-                <img className="w-50 float-left mr-4 mb-3" src="img/blog-1.jpg" alt="Blog" />
-                <p>
-                  Diam dolor est labore duo invidunt ipsum clita et, sed et lorem voluptua tempor invidunt at est
-                  sanctus sanctus. Clita dolores sit kasd diam takimata justo diam lorem sed.
-                </p>
+               
               </div>
 
               {/* Add other sections here */}

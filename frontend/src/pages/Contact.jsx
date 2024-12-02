@@ -1,7 +1,7 @@
 import React from "react";
 import { FaTwitter, FaFacebookF, FaLinkedinIn, FaInstagram } from "react-icons/fa";
-import LeftProfile from "./LeftProfile";
-import Navbar from "./Navbar";
+import LeftProfile from "../component/LeftProfile";
+import Navbar from "../component/Navbar";
 
 const Contact = () => {
   return (

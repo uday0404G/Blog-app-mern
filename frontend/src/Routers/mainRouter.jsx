@@ -1,13 +1,14 @@
 import React from 'react'
 import {Route, Routes} from 'react-router-dom'
 import PrivateRoute from './privateRoute'
-import Login from '../component/Login'
-import Signup from '../component/Signup'
-import Home from '../component/Home'
-import About from '../component/About'
-import MyBlog from './../component/MyBlog';
-import SingleBlog from '../component/SingleBlog'
-import Contact from '../component/Contact'
+import Login from '../pages/Login'
+import Signup from '../pages/Signup'
+import Home from '../pages/Home'
+import About from '../pages/About'
+import MyBlog from './../pages/MyBlog';
+import SingleBlog from '../pages/SingleBlog'
+import Contact from '../pages/Contact'
+import AddBlog from '../pages/AddBlog'
 
 const MainRouter = () => {
   return (
@@ -18,6 +19,7 @@ const MainRouter = () => {
         <Route path="/myblog" element={<MyBlog/>}/>
         <Route path="/blog/:id" element={<SingleBlog/>}/>
         <Route path="/contact" element={<Contact/>}/>
+        <Route path="/add" element={<PrivateRoute><AddBlog/></PrivateRoute>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<Signup/>}/>
     </Routes>
